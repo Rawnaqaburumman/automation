@@ -13,8 +13,10 @@ def find_phones():
             phones.append(number[1:4] + '-' + number[5:])
         if len(number) == 10:
             phones.append(number[0:3] + '-' + number[3:6] + '-' + number[6:])
-            
+            #print(number)
+
     phones = sorted(phones)
+    #print(phones)
     phones = list(dict.fromkeys(phones))    
     with open('phone_numbers.txt', 'w+') as file:
         for phone in phones:
@@ -22,6 +24,7 @@ def find_phones():
 
 def find_emails():
     wanted_emails = re.findall(r'[\w.+-_]+@[\w-]+.\w+', all_data)
+    #print(wanted_emails)
     wanted_emails = sorted(wanted_emails)
     with open('emails.txt','w+') as file:
         for email in wanted_emails:
